@@ -8,7 +8,6 @@ let start = () => {
   bot.on("message", (msg) => {
     let text = msg.text;
     let userId = msg.chat.id;
-
     bot.setMyCommands([
       {
         command: "/start",
@@ -19,17 +18,76 @@ let start = () => {
         description: "Информация о вас",
       },
     ]);
-    bot.answerInlineQuery(userId, "sddssds");
     if (text == "/start") {
-      return bot.sendMessage(userId, `Как тебя зовут?  / `);
-    }
-    if (text == "/info") {
       return bot.sendMessage(
         userId,
-        `Имя: ${msg.from.first_name}, Фамилия: ${msg.from.last_name}`
+        `Добро Пожаловать
+        Наш сайт: mamakeev.com
+      
+        1 Условие работы /work
+        2 График работы /time
+        3 Условия оплаты /pay
+        4 Наш сайт /site
+        5 Телефон /phone
+      `
       );
     }
-    return bot.sendMessage(userId, "Пока я вас не понимаю");
+
+    if (text == "/work") {
+      return bot.sendMessage(
+        userId,
+        `Условие работы:
+        Возможны выплаты каждый день, день-в-день
+        Большое количество заказов
+        Без оплаты за подключение
+        Внутренняя система обучения
+        `
+      );
+    }
+    if (text == "/time") {
+      return bot.sendMessage(
+        userId,
+        `График работы:
+        5/2 8:00 - 18:00
+        `
+      );
+    }
+    if (text == "/pay") {
+      return bot.sendMessage(
+        userId,
+        `Способы оплаты
+        Наличными
+        Visa
+        mBank
+        Элсом
+        `
+      );
+    }
+    if (text == "/site") {
+      return bot.sendMessage(
+        userId,
+        `Наш сайт mamakeev.com`
+      );
+    }
+    if (text == "/phone") {
+      return bot.sendMessage(
+        userId,
+        `Номер телефона 0555 575 457`
+      );
+    }
+    if (text == "салам") {
+      return bot.sendMessage(
+        userId,
+        `Салам ${msg.from.first_name}`
+      );
+    }
+    if (text == "Салам") {
+      return bot.sendMessage(
+        userId,
+        `Салам ${msg.from.first_name}`
+      );
+    }
+    return bot.sendMessage(userId, "Повоните нам по номеру 0555 575 457");
   });
 };
 start();
